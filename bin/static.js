@@ -6,6 +6,6 @@ const chalk = require('chalk');
 console.clear();
 
 console.log(
-  chalk.red(figlet.textSync('Static-Cli', { horizontalLayout: 'full' }))
+  chalk.red(figlet.textSync('STATIC CLI'))
 );
 
