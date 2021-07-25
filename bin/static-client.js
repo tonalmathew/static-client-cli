@@ -7,11 +7,6 @@ const chalk = require("chalk");
 const commander = require("commander");
 
 commander
-  // .command("start")
-  // .description("start the server")
-  // .action(() => {
-  //   console.log("starting");
-  // })
   .version("0.0.1")
   .option(
     "-e, --environment [environment]",
@@ -19,12 +14,7 @@ commander
   )
   .option("-n, --name[name]", "The name", "admin")
   .action((options) => {
-    console.log(options.environment);
-    console.log(
-      chalk.blue(
-        figlet.textSync(options.environment, { horizontalLayout: "full" })
-      )
-    );
+    console.log(chalk.blue.bold(figlet.textSync(options.environment)));
   });
 console.clear();
 
