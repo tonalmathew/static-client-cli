@@ -1,24 +1,24 @@
 {
-  "name": "static-cli",
+  "name": "static-client",
   "version": "1.0.0",
   "description": "cli for static pages",
-  "main": "bin/static.js",
+  "main": "bin/static-client.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tonalmathew/static-cli.git"
+    "url": "git+https://github.com/tonalmathew/static-client-cli.git"
   },
   "author": "",
   "license": "ISC",
   "bin": {
-    "static-cli": "./bin/statis.js"
+    "static-client": "./bin/static-client.js"
   },
   "bugs": {
-    "url": "https://github.com/tonalmathew/static-cli/issues"
+    "url": "https://github.com/tonalmathew/static-client-cli/issues"
   },
-  "homepage": "https://github.com/tonalmathew/static-cli#readme",
+  "homepage": "https://github.com/tonalmathew/static-client-cli#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "boxen": "4.0",

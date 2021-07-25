@@ -7,11 +7,11 @@ const chalk = require("chalk");
 const commander = require("commander");
 
 commander
-  .command("start")
-  .descryption("start the server")
-  .action(() => {
-    console.log("starting");
-  })
+  // .command("start")
+  // .description("start the server")
+  // .action(() => {
+  //   console.log("starting");
+  // })
   .version("0.0.1")
   .option(
     "-e, --environment [environment]",
