@@ -2,8 +2,6 @@
 
 const figlet = require("figlet");
 const chalk = require("chalk");
-
-// add commander for cli
 const commander = require("commander");
 
 commander
@@ -17,6 +15,4 @@ commander
     console.log(chalk.blue.bold(figlet.textSync(options.environment)));
   });
 console.clear();
-
-// console.log(chalk.red(figlet.textSync("STATIC CLI")));
 commander.parse(process.argv);
