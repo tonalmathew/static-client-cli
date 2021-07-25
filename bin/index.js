@@ -7,6 +7,6 @@ const options = yargs
  .option("n", { alias: "name", describe: "Your name", type: "string", demandOption: true })
  .argv;
 
-const greeting = `Hello, ${options.name}! Wekcome to static-cli`;
+const greeting = `Hello, ${options.name}! Welcome to static-cli🤝`;
 
 console.log(greeting);
