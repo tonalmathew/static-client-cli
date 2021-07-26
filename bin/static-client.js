@@ -1,8 +1,46 @@
 #!/usr/bin/env node
+"use strict";
 
 const figlet = require("figlet");
 const chalk = require("chalk");
 const commander = require("commander");
+var inquirer = require("inquirer");
+
+// INQUIRER
+
+const receiver = () => {
+  inquirer
+    .prompt([
+      {
+        typr: "input",
+        name: "name",
+        message: "your name",
+      },
+    ])
+    .then((answers) => {
+      console.log(`Helloo ${answers.name}`);
+    });
+};
+
+inquirer
+  .prompt([
+    {
+      type: "list",
+      message: "Select the framework which you want to use: ",
+      name: "framework",
+      choices: ["Bootsrap", "tailwnd", "anyother frameworks"],
+    },
+  ])
+  .then((answers) => {
+    console.log(answers);
+  })
+  .catch((error) => {
+    if (error.isTtyError) {
+      console.error(error.message);
+    } else {
+      console.error(error.stack);
+    }
+  });
 
 commander
   .version("0.0.1")
