@@ -20,13 +20,18 @@
   },
   "homepage": "https://github.com/tonalmathew/static-client-cli#readme",
   "dependencies": {
-    "axios": "^0.21.1",
     "boxen": "4.0",
     "chalk": "2.4",
     "colors": "^1.4.0",
     "commander": "^8.0.0",
+    "esm": "^3.2.25",
     "figlet": "^1.5.0",
     "inquirer": "^8.1.2",
     "pad": "^3.2.0"
-  }
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "templates/"
+  ]
 }
