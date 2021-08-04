@@ -27,7 +27,8 @@
     "esm": "^3.2.25",
     "figlet": "^1.5.0",
     "inquirer": "^8.1.2",
-    "pad": "^3.2.0"
+    "pad": "^3.2.0",
+    "update-notifier": "^5.1.0"
   },
   "files": [
     "bin/",
