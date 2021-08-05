@@ -1,27 +1,52 @@
 "use strict";
 
-var inquirer = require("inquirer");
+// var inquirer = require("inquirer");
+const { program } = require('commander')
 
+import updateNotifier from 'update-notifier';
+import init from './commands/init/index';
 import * as app from "./utils/app";
+import pkg from '../package';
+import * as constants from './constants/constants';
 
-app.showIntroduction();
+updateNotifier({ pkg }).notify();
 
-inquirer
-  .prompt([
-    {
-      type: "list",
-      message: "Select the framework which you want to use: ",
-      name: "framework",
-      choices: ["Bootsrap", "tailwnd", "anyother frameworks"],
-    },
-  ])
-  .then((answers) => {
-    console.log(answers);
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      console.error(error.message);
-    } else {
-      console.error(error.stack);
+
+const suggestCommands = (cmd) => {
+  const availableCommands = program.commands.map((c) => c._name);
+  
+  const suggestion = availableCommands.find(
+    (c) => leven(c, cmd) < c.length * 0.4
+    );
+    
+    if (suggestion) {
+      logger.error(` Did you mean ${chalk.yellow(suggestion)}?`);
     }
-  });
+  };
+  
+  // app.showIntroduction();
+
+program
+  .description(constants.tagLine)
+  .version(pkg.version)
+  .usage('<command> [options]');
+
+program
+  .command('init <appname>')
+  .description('Scaffolds a Static project in the current path')
+  .action(init);
+
+// Validation for unknown commands
+program.on('command:*', ([cmd]) => {
+  program.outputHelp();
+  logger.error(`\n Unknown command ${chalk.yellow(cmd)}.\n`);
+  suggestCommands(cmd);
+  process.exitCode = 1;
+});
+
+program.parse(process.argv);
+
+// Shows up help if no arguments were provided.
+if (!program.args.length) {
+  app.showIntroduction();
+}
